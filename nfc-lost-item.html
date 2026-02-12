@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost Item</title>
+
+  <!-- Запрет индексации -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: #f4f4f4;
+    }
+    .box {
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    a {
+      display: block;
+      margin-top: 15px;
+      padding: 12px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get("key");
+
+  // Твой секретный ключ
+  const correctKey = "lst_itm";
+
+  if (key === correctKey) {
+    document.getElementById("content").innerHTML = `
+      <div class="box">
+        <h2>Этот предмет потерян</h2>
+        <p>Пожалуйста, свяжитесь со мной.</p>
+        <a href="tel:+380XXXXXXXXX">Позвонить</a>
+      </div>
+    `;
+  } else {
+    document.body.innerHTML = "<h1>404</h1>";
+  }
+</script>
+
+</body>
+</html>
